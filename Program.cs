@@ -1,17 +1,27 @@
-﻿Console.WriteLine("Введите номер дня недели");
-int number = int.Parse(Console.ReadLine()!);
+﻿int dayNumber = ReadInt("Введите число от 1 до 7: ");
+Console.WriteLine(WorkHoliday(dayNumber));
 
-//int dayoff(int number)
+int ReadInt(string message)
 {
-    int day = 0;
-    if(day >= 1 && day <= 5)
-    {
-        Console.WriteLine("нет");
-    }
-    else Console.WriteLine("да");
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
 }
-
-//int  res = dayoff(number);
-//Console.WriteLine(res);
-
-
+string WorkHoliday(int a)
+{
+    if (a > 0 && a < 8)
+    {
+        if (a == 7 || a == 6)
+        {
+            Console.Write("Под цифрой " + a + " - Выходной");
+        }
+        else
+        {
+            Console.Write("Под цифрой " + a + " - Рабочий");
+        }
+    }
+    else
+    {
+        Console.Write("Вы ввели число не в пределах от 1 до 7, поэтому не возможно определить");
+    }
+    return " день.";
+}
